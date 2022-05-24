@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title>Edit And Update Page</title>
+</head>
+
+<body >
+
+        <h1>Edit And Update Student Record</h1>
+        <h2>The Student Id Is {{crudst.id}}</h2>
+        <hr>
+        <form method="POST" action="/Update/{{crudst.id}}">
+            {%csrf_token%}
+        <table border="1" >
+            <tr >
+                <td>PLAYER NAME</td>
+                <td id="tt"><input type="text" name="stname" value="{{crudst.stname}}"></td>
+            </tr>
+            <tr>
+                <td>PLAYER Email</td>
+                <td><input type="text" name="stemail" value="{{crudst.stemail}}"></td>
+            </tr>
+            <tr>
+                <td>PLAYER Address</td>
+                <td><input type="text" name="staddress" value="{{crudst.staddress}}"></td>
+            </tr>
+            <tr>
+                <td>PLAYER Mobile</td>
+                <td><input type="text" name="stmobile" value="{{crudst.stmobile}}"></td>
+            </tr>
+            <tr>
+                <td>PLAYER Gender</td>
+                <td><input type="text" name="stgender" value="{{crudst.stgender}}"></td>
+            </tr>
+        </table>
+        <input type="Submit" value="Update Student Records ">
+        <a href="{% url 'stdisplay'%}"> Home Page</a>
+        </hr>
+        {% if messages %}
+        {% for results in messages %}
+        {% empty %}
+        {% endfor %}
+        {% endif %}
+
+        </form>
+
+</body>
+
+</html>

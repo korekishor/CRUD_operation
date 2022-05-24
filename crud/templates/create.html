@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <title>Create Records</title>
+</head>
+<body>
+    <b ></b>
+
+        <h3>Add New Student Records</h3>
+        <hr/>
+    <form method="POST">
+        {%csrf_token%}
+            
+        <table border="1">
+            <tr>
+                <td>Student Name</td>
+                <td><input type="text" placeholder="Student Name.." name="stname"></td>
+            </tr>
+            <tr>
+                <td>Student Email</td>
+                <td><input type="text" placeholder="Student Email.." name="stemail"></td>
+            </tr>
+
+            <tr>
+                <td>Student Address</td>
+                <td><input type="text" placeholder="Student Address.." name="staddress"></td>
+            </tr>
+
+            <tr>
+                <td>Student Mobile</td>
+                <td><input type="text" placeholder="Student Mobile.." name="stmobile"></td>
+            </tr>
+
+            <tr>
+                <td>Gender</td>
+                <td>
+
+                <input type="radio" value="M" name="stgender" group="stgender"> Male |
+                <input type="radio" value="F" name="stgender" group="stgender"> Female
+            </td>
+            </tr>
+        </table>
+        
+        <input type="Submit"value="Insert Record "/> 
+        <a href="{% url 'stdisplay' %}">Home Page</a>
+        <hr/>
+        {% if messages%}
+        {% for result in messages %}
+        <b>{{result}}</b>
+        {% endfor %}
+        {% endif %}
+    </form>
+
+</body>
+</html>
